@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.imooc.springMVC.DAO.UserDAO">
+	
+	<select id="getAllUser" resultType="com.imooc.springMVC.pojo.User">
+		select * from user
+	</select>
+	
+	<select id="getUserById" resultType="com.imooc.springMVC.pojo.User">
+		select * from user where id=id=#{id}
+	</select>
+	
+	<insert id="addUser">
+		insert into user(username,password,sex,address,phone) 
+		values(#{user.username},#{user.password},#{user.sex},#{user.address},#{user.phone})
+	</insert>
+	
+	<delete id="deleteUser">
+		delete from user where id=#{id}
+	</delete>
+
+	<update id="updateUser">
+		update user set username=#{user.username},password=#{user.password},sex=#{user.sex},address=#{user.address},phone=#{user.phone}}
+		where id=#{id}
+	</update>
+</mapper>
