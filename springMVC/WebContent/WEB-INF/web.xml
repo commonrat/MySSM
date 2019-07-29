@@ -15,7 +15,9 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>SpringMVC</servlet-name>
-  	<url-pattern>/*</url-pattern>
+  	<!-- 当配置为/*时，所有请求都发送到DispatcherServlet -->
+  	<!-- 当配置为*.do时，SpringMVC的PatternsRequestCondition会处理为.*,写URL映射时，可以省略.do -->
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <!-- 加载Spring监听器 -->
   <context-param>
@@ -25,5 +27,13 @@
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
 </web-app>

@@ -16,5 +16,7 @@
 
 	<!-- 配置组件扫描器，使用注解方式开发,不用配置dao和service -->
 	<!-- 在springmvc.xml文件中也可以配置这个属性 -->
-	<context:component-scan base-package="com.imooc.springMVC" />
+	<context:component-scan base-package="com.imooc.springMVC" >
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 </beans>
